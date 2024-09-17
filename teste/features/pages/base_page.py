@@ -1,7 +1,5 @@
 import time
 import os
-import io
-from PIL import Image, ImageDraw
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
@@ -16,32 +14,24 @@ class BasePage:
     def capture_screenshot(self, step_name=None, highlight_element=None):
         page_name = self.__class__.__name__.lower()
         
+        # Criação do diretório para armazenar as capturas de tela
         directory = os.path.join(self.screenshot_dir, page_name)
         os.makedirs(directory, exist_ok=True)
         
+        # Geração do nome do arquivo com timestamp
         timestamp = time.strftime("%Y%m%d_%H%M%S")
         filename = f"{step_name}_{timestamp}.png" if step_name else f"SCREENSHOT_{timestamp}.png"
         file_path = os.path.join(directory, filename)
         
+        # Caso haja um elemento para destacar, rola a página até o elemento
         if highlight_element:
             self.browser.execute_script("arguments[0].scrollIntoView();", highlight_element)
         
-        screenshot = self.browser.get_screenshot_as_png()
-        screenshot = Image.open(io.BytesIO(screenshot))
+        # Captura a screenshot diretamente via Selenium
+        self.browser.save_screenshot(file_path)
         
-        if highlight_element:
-            location = highlight_element.location_once_scrolled_into_view
-            size = highlight_element.size
-            left = location['x']
-            top = location['y']
-            right = left + size['width']
-            bottom = top + size['height']
-            
-            draw = ImageDraw.Draw(screenshot)
-            draw.rectangle([left, top, right, bottom], outline="red", width=4)
-        
-        screenshot.save(file_path)
         print(f"Screenshot salva em: {file_path}")
+
 
     def wait_for_element(self, locator, timeout=20):
         try:

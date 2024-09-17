@@ -1,4 +1,4 @@
-#!C:\GIT_AUTOMACAO\PYTHON\projeto_ neogrid\saucedemo_automation\.env\Scripts\python.exe
+#!C:\GIT_AUTOMACAO\automacao_neogrid_saucedemo\automacao_neogrid_saucedemo\teste\.env\Scripts\python.exe
 
 ##############################################################################
 #

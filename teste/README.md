@@ -9,7 +9,7 @@ Este projeto realiza a automação de testes para o site de demonstração do Sa
 - Python 3.x
 - WebDriver
 - Selenium
-- Behave
+- Behave 
 
 
 - Instalação das dependências:

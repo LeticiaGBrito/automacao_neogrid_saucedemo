@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\GIT_AUTOMACAO\PYTHON\projeto_ neogrid\saucedemo_automation\.env
+set VIRTUAL_ENV=C:\GIT_AUTOMACAO\automacao_neogrid_saucedemo\automacao_neogrid_saucedemo\teste\.env
 
 if not defined PROMPT set PROMPT=$P$G
 
