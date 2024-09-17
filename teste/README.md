@@ -30,8 +30,9 @@ Este projeto realiza a automação de testes para o site de demonstração do Sa
 •  features/specs: Contém os arquivos .feature com os cenários de teste em Gherkin.
 •  features/elements.py: Armazena os seletores de elementos, como XPaths e IDs.
 •  features/environment.py: Configura o ambiente do teste, como inicialização do navegador.
-•  reports: Diretório onde serão armazenados os screenshots e relatórios.
-•  logs: Diretório para o log da automação.
+•  features/browser.py : configuracao de codigo para abrir o navegador - edge
+•  features/pages/base_page.py: contem classe com os metodos reutilizaveis
+•  evidencias: Diretório onde serão armazenados os screenshots e relatórios.
 •  requirements.txt: Arquivo para definir as dependências do projeto.
 
  ## Comando para rodar fluxo completo
@@ -47,6 +48,8 @@ Este projeto realiza a automação de testes para o site de demonstração do Sa
    behave features/specs/checkout.feature
    behave features/specs/filtro_produtos.feature
    behave features/specs/adicionar_ao_carrinho.feature
+
+## para o login ele faz o acesso automatico, quando rodar o teste por unidade , nao tem a necessidade de realizar o teste do login. 
    
   
 
